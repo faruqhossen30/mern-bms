@@ -3,7 +3,7 @@ const mongoosePaginate = require('mongoose-paginate-v2');
 const User = mongoose.model('User');
 const DepositSchema = new mongoose.Schema({
     user: {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref:User,
         required:true
     },

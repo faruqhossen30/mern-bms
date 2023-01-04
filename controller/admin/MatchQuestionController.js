@@ -1,4 +1,4 @@
-const Team = require('../../models/Team');
+const MatchQuestion = require('../../models/MatchQuestion');
 
 exports.index = async (req, res) => {
     const { page } = await req.query;
@@ -8,10 +8,10 @@ exports.index = async (req, res) => {
         page: page && page || 1
     }
 
-    const teams = await Team.paginate({},
+    const MatchQuestions = await MatchQuestion.paginate({},
         options
     );
-    res.send(teams);
+    res.send(MatchQuestions);
 }
 exports.allteams = async(req, res) => {
     const country = await Team.find();
@@ -19,8 +19,9 @@ exports.allteams = async(req, res) => {
 }
 
 exports.store = (req, res) => {
-    const { name } = req.body;
-    const team = new Team({ name });
-    team.save();
-    res.send(team);
+    // const { name,status } = req.body;
+    // const question = new MatchQuestion({name,status});
+    // question.save();
+    // res.send(question);
+    res.send(req.body);
 }

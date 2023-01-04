@@ -34,11 +34,11 @@ app.use(middleware);
 app.use(morgan('combined'))
 
 // import routes
-const webRoutes = require("./routes/web");
-const authRoutes = require("./routes/auth");
 const apiRoutes = require("./routes/api");
+const authRoutes = require("./routes/auth");
+const webRoutes = require("./routes/web");
 // defining routes
-app.use("/", webRoutes);
+app.use("/api/", webRoutes);
 app.use("/api/", authRoutes);
 app.use("/api/", apiRoutes);
 

@@ -1,0 +1,57 @@
+{
+  // config related to code formatting
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.organizeImports": true
+  },
+  "eslint.alwaysShowStatus": true,
+
+  "alignment.chars": {
+    ":": {
+      "spaceBefore": 0,
+      "spaceAfter": 1
+    },
+    "::": {
+      "spaceBefore": 0,
+      "spaceAfter": 0
+    },
+    "=": {
+      "spaceBefore": 1,
+      "spaceAfter": 1
+    },
+    "===": {
+      "spaceBefore": 1,
+      "spaceAfter": 1
+    },
+    "==": {
+      "spaceBefore": 1,
+      "spaceAfter": 1
+    },
+    "=>": {
+      "spaceBefore": 1,
+      "spaceAfter": 1
+    },
+    "+=": {
+      "spaceBefore": 1,
+      "spaceAfter": 1
+    },
+    "-=": {
+      "spaceBefore": 1,
+      "spaceAfter": 1
+    },
+    "*=": {
+      "spaceBefore": 1,
+      "spaceAfter": 1
+    },
+    "/=": {
+      "spaceBefore": 1,
+      "spaceAfter": 1
+    }
+  }
+}
