@@ -1,9 +1,9 @@
 const { check } = require("express-validator");
 
 exports.matchQuestionStore = [
-  check('name')
+  check('title')
   .notEmpty()
-  .withMessage("name is missing"),
+  .withMessage("title is missing"),
 
   check('status')
   .notEmpty()

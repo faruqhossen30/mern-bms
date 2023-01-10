@@ -59,9 +59,10 @@ router.get('/user/:id', async (req, res)=>{
 // Payment Gateways
 router.get('/payment-gateways', PaymentGatewayController.index);
 router.post('/payment-gateways', auth,paymentGatewayValidator.paymentGateStore,runValidation, PaymentGatewayController.store);
+router.post('/payment-gateway/delete/:id', auth,PaymentGatewayController.destroy);
 // Options
-router.get('/option/get', OptionController.get);
-router.post('/option/get', auth, optionValidator.optionSet,OptionController.set);
+router.get('/option/get/:key', OptionController.get);
+router.post('/option/set', auth, optionValidator.optionSet,OptionController.set);
 // Widthdraws
 router.get('/widthdraws', WidthdrawController.index);
 router.get('/widthdraw/:id', WidthdrawController.show);
@@ -78,12 +79,15 @@ router.get('/deposit/:id', DepositeController.show);
 router.post('/deposit/:id',auth, DepositeController.update);
 router.post('/deposite/store', auth,depositValidator.depositStore, runValidation, DepositeController.store);
 
-// Bet
+// Match
 router.get('/matches', MatchController.index);
+router.get('/match/:id', MatchController.show);
 router.post('/matches',matchValidation.matchStore,runValidation, MatchController.store);
-// Bet Question
+router.post('/match/update/:id',matchValidation.matchUpdate,runValidation, MatchController.update);
+router.post('/match/delete/:id', auth,MatchController.destroy);
+// Match Question
 router.get('/match/questions', MatchQuestionController.index);
-router.post('/match/questions',matchQuestionValidation.matchQuestionStore, runValidation, MatchQuestionController.store);
+router.post('/match/:id/question',matchQuestionValidation.matchQuestionStore, runValidation, MatchQuestionController.store);
 // Club
 
 router.get('/clubs', ClubController.index);
