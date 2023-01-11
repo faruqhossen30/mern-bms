@@ -37,19 +37,12 @@ exports.store = async (req, res) => {
   //     betLimit: 100,
   //   };
 
-  // for (let item of options) {
-    // const optionDoc = new MatchQuestionOption({
-    //   title: item.title,
-    //   question: "63b995170abfc5345f787233",
-    //   betRate: 2,
-    //   betLimit: 100,
-    // }).save();
-
+  for (let item of options) {
     const matchOptionAdd = await MatchQuestion.findOneAndUpdate(
       { _id: matchQuestion._id },
-      { $push: { options: { title: "some",betRate:2} } }
+      { $push: { options: { title: item.title,betRate:item.rate} } }
     );
-  // }
+  }
 
   res.send(options);
 

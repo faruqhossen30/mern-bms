@@ -1,5 +1,18 @@
 const Option = require("../models/Option");
 
+exports.options = async (req, res) => {
+  const options = await Option.find();
+  res.json(options);
+};
+exports.headerNotice = async (req, res) => {
+  const headerNotice = await Option.findOne({ key: 'headerNotice' });
+  res.json(headerNotice);
+};
+exports.footerNotice = async (req, res) => {
+  const footerNotice = await Option.findOne({ key: 'footerNotice' });
+  res.json(footerNotice);
+};
+
 exports.get = async (req, res) => {
   const { key } = await req.params;
   const findValue = await Option.findOne({ key: key });

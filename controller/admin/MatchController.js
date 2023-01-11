@@ -28,6 +28,7 @@ exports.store = (req, res) => {
     date,
     status,
     autoQuestion,
+    note
   } = req.body;
   const match = new Match({
     teamOne,
@@ -38,6 +39,7 @@ exports.store = (req, res) => {
     date,
     status,
     autoQuestion,
+    note
   });
   match.save();
   res.send(match);
@@ -60,6 +62,7 @@ exports.update = async(req, res) => {
     date,
     status,
     autoQuestion,
+    note
   } = await req.body;
   const match = await  Match.updateOne({_id:id},{teamOne,
     teamTwo,
@@ -68,7 +71,9 @@ exports.update = async(req, res) => {
     teamTwoFlag,
     date,
     status,
-    autoQuestion});
+    autoQuestion,
+    note}
+    );
   res.send(match);
 
   // res.send(id)

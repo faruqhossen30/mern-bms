@@ -61,6 +61,9 @@ router.get('/payment-gateways', PaymentGatewayController.index);
 router.post('/payment-gateways', auth,paymentGatewayValidator.paymentGateStore,runValidation, PaymentGatewayController.store);
 router.post('/payment-gateway/delete/:id', auth,PaymentGatewayController.destroy);
 // Options
+router.get('/options', OptionController.options);
+router.get('/option/header-notice', OptionController.headerNotice);
+router.get('/option/footer-notice', OptionController.footerNotice);
 router.get('/option/get/:key', OptionController.get);
 router.post('/option/set', auth, optionValidator.optionSet,OptionController.set);
 // Widthdraws

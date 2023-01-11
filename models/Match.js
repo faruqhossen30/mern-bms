@@ -34,6 +34,10 @@ const MatchSchema = new mongoose.Schema({
     type: Boolean,
     required: true,
   },
+  note: {
+    type: String,
+    required: false,
+  },
   questions: {
     type: [mongoose.Schema.Types.ObjectId],
     ref: MatchQuestion,
