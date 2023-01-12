@@ -66,21 +66,13 @@ router.get('/option/header-notice', OptionController.headerNotice);
 router.get('/option/footer-notice', OptionController.footerNotice);
 router.get('/option/get/:key', OptionController.get);
 router.post('/option/set', auth, optionValidator.optionSet,OptionController.set);
-// Widthdraws
-router.get('/widthdraws', WidthdrawController.index);
-router.get('/widthdraw/:id', WidthdrawController.show);
-router.post('/widthdraw/:id', WidthdrawController.update);
-router.post('/widthdraws/store',auth,widthdrawValidator.widthdrawStore, runValidation, WidthdrawController.store);
+
 
 router.get('/games',GameController.index);
 router.get('/teams', index);
 router.get('/allteams', allteams);
 router.post('/team/store', upload.single('flag'), store);
-// Deposit
-router.get('/deposites', DepositeController.index);
-router.get('/deposit/:id', DepositeController.show);
-router.post('/deposit/:id',auth, DepositeController.update);
-router.post('/deposite/store', auth,depositValidator.depositStore, runValidation, DepositeController.store);
+
 
 // Match
 router.get('/matches', MatchController.index);
@@ -95,6 +87,22 @@ router.post('/match/:id/question',matchQuestionValidation.matchQuestionStore, ru
 
 router.get('/clubs', ClubController.index);
 router.post('/clubs',auth,clubtValidator.clubCreate,runValidation, ClubController.store);
+
+// =========== User End ==========================
+// Deposit
+router.get('/deposites', DepositeController.index);
+router.get('/deposit/:id', DepositeController.show);
+router.post('/deposit/:id',auth, DepositeController.update);
+router.post('/deposite/store', auth,depositValidator.depositStore, runValidation, DepositeController.store);
+router.get('/user/:id/deposites', DepositeController.userDeposites);
+
+// Widthdraws
+router.get('/widthdraws', WidthdrawController.index);
+router.get('/user/:id/widthdraws', WidthdrawController.userWidthdraws); // User
+router.get('/widthdraw/:id', WidthdrawController.show);
+router.post('/widthdraw/:id', WidthdrawController.update);
+router.post('/user/widthdraws/store',auth,widthdrawValidator.widthdrawStore, runValidation, WidthdrawController.store);
+
 
 
 module.exports = router;

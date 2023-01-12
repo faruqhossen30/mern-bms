@@ -33,3 +33,10 @@ exports.store = async(req, res) => {
         return res.json(err)
     }
 }
+
+// for user
+exports.userWidthdraws = async (req, res) => {
+    const {id} = await req.params
+    const withdraws = await Withdraw.paginate({user:id},{limit: 10});
+    res.json(withdraws)
+}

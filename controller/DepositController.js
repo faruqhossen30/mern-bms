@@ -40,3 +40,11 @@ exports.store = (req, res) => {
         return res.json(err)
     }
 }
+
+// ================= for user end
+exports.userDeposites = async (req, res) => {
+    const {id} = await req.params
+    const deposit = await Deposit.paginate({user:id},{limit: 10});
+    // const deposit = await Deposit.find().populate("userId");
+    res.json(deposit)
+}
