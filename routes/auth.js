@@ -12,7 +12,7 @@ const teams = require('../db/teams');
 
 // Current User information
 router.get("/user", auth, async (req, res) => {
-    const profile = await User.findById(req.user._id);
+    const profile = await User.findOne(req.user._id);
     res.send(profile);
 });
 
